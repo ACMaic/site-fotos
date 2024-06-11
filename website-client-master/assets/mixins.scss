@@ -1,0 +1,47 @@
+@mixin small-iphone-only {
+  @media (max-width: 320px) { @content; }
+}
+
+@mixin smaller-phones {
+  @media (min-width: 300px) and (max-width: 370px) { @content; }
+}
+
+@mixin thin-phones {
+  @media (max-width: 300px) { @content; }
+}
+
+@mixin phone-only {
+  @media (max-width: 599px) { @content; }
+}
+
+@mixin tablet-portrait-down {
+  @media (max-width: 960px)  { @content; }
+}
+
+@mixin tablet-portrait-up {
+  @media (min-width: 600px)  { @content; }
+}
+
+@mixin tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+
+@mixin small-transition {
+  @media (min-width: 900px) and (max-width: 959px) { @content; }
+}
+
+@mixin small-screen-up {
+  @media (min-width: 900px) and (max-width: 1265px) { @content; }
+}
+
+@mixin desktop-up {
+  @media (min-width: 1264px) { @content; }
+}
+
+@mixin small-desktop {
+  @media (min-width: 1280px) and (max-width: 1480px) { @content; }
+}
+
+@mixin big-desktop-up {
+  @media (min-width: 2000px) { @content; }
+}

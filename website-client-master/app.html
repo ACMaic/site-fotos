@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+
+<head {{ HEAD_ATTRS }}>
+  {{ HEAD }}
+  <script>
+    dataLayer = [{
+
+    }];
+
+
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(),
+        event: 'gtm.js'
+      }); const f = d.getElementsByTagName(s)[0]
+      // eslint-disable-next-line eqeqeq
+      const j = d.createElement(s); const dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f)
+    })(window, document, 'script', 'dataLayer', 'GTM-P2XCP369');
+
+    (function (a, b, c, d, e, f, g){
+            a['CsdpObject'] = e; a[e] = a[e] || function () {
+                    (a[e].q = a[e].q || []).push(arguments)
+               },
+               a[e].l = 1 * new Date(); f = b.createElement(c),
+               g = b.getElementsByTagName(c)[0]; f.async = 1; f.src = d;
+               g.parentNode.insertBefore(f, g)
+    })
+    (window, document, 'script', '//device.clearsale.com.br/p/fp.js','csdp');
+
+    let uid = window.sessionStorage.getItem('clearSaleSession')
+
+    if (!uid) {
+      uid = (new Date().getTime()).toString(36)
+      window.sessionStorage.setItem('clearSaleSession', uid)
+    }
+
+    csdp('app', '1unlqd1zaz45uvn7rfjg');
+    csdp('sessionid', uid);
+  </script>
+<body {{ BODY_ATTRS }}>
+  <noscript></noscript>
+  {{ APP }}
+</body>
+<script src="https://unpkg.com/blip-chat-widget" type="text/javascript"></script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/20200063.js"></script>
+
+<script>
+   (function () {
+        window.onload = function () {
+            new BlipChat()
+                .withAppKey('Ym90d2hhdHNhcHA3OmI0NTVjZDU2LWE5MzYtNGQ4My1iMTQ5LWVjOTUwNDljZTZhNQ==')
+                .withButton({"color":"#bc204b","icon":""})
+                .withCustomCommonUrl('https://suites360.chat.blip.ai/')
+                .build();
+        }
+    })();
+</script>
+</html>

@@ -1,0 +1,282 @@
+@import './mixins.scss';
+@import './360-typography.scss';
+
+html {
+  scroll-behavior: smooth;
+}
+$primary: #C31C4A;
+
+.container-360 {
+  @include desktop-up() {
+    margin: 0 auto !important;
+    max-width: 1264px !important;
+  }
+}
+
+.rounded-content-header {
+  background-color: #f6f6f6 !important;
+  margin-top: -50px !important;
+  border-radius: 50px 0 0 !important;
+  position: relative !important;
+}
+
+.blur {
+  backdrop-filter: blur(5px);
+  background-color: rgba(17, 17, 17, 0.699);
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.blur-second-modal {
+  backdrop-filter: blur(5px);
+  background-color: rgba(17, 17, 17, 0.699);
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 204;
+}
+
+.banner-carousel {
+  .v-carousel__controls {
+    @include desktop-up() {
+      height: 200px !important;
+    }
+    height: 150px !important;
+  }
+}
+
+.v-menu__content {
+  max-height: 400px !important;
+}
+
+.v-autocomplete:not(.v-input--is-focused).v-select--chips input {
+  max-height: inherit !important;
+}
+
+// Override the textfield's radius
+.v-text-field {
+  .v-field__outline__start {
+    border-radius: 10px 0 0 10px !important;
+  }
+  .v-field__outline__end {
+    border-radius: 0 10px 10px 0 !important;
+  }
+}
+
+.v-btn {
+  font-weight: 500 !important;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 6px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.main-div {
+  @include desktop-up() {
+    margin: 0 auto;
+    max-width: 1264px !important;
+  }
+}
+
+$slide-group-prev-basis: 0px;
+
+.pointer {
+  cursor: pointer;
+}
+
+.border-360 {
+  border-radius: 34px !important;
+}
+
+.border-360-1 {
+  border-radius: 20px !important;
+}
+
+.radius-card {
+  border-radius: 40px 40px 40px 0 !important;
+}
+
+.text-transform {
+  text-transform: inherit !important;
+}
+
+.v-slide-group__wrapper {
+  overflow-x: auto !important; /* Enables the horizontal scrollbar */
+  /* Next lines hides scrollbar in different browsers for styling purposes */
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.v-menu__content {
+  max-height: 400px !important;
+}
+
+.background-360 {
+  background-color: #f6f6f6 !important;
+}
+
+.search-button {
+  font-weight: 400 !important;
+  color: #333 !important;
+  font-size: 18px !important;
+}
+
+.radius-360 {
+  border-radius: 25px 25px 25px 0 !important;
+}
+
+.suite-carousel {
+  .v-carousel__controls {
+    height: 100px !important;
+  }
+}
+
+.text-unset {
+  text-transform: unset !important;
+  letter-spacing: 0px !important;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.login-360 {
+  max-width: 610px !important;
+}
+
+.radius-login-360 {
+  border-radius: 5px !important;
+}
+
+.gap-16 {
+  gap: 16px;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.scroll-margin-owners {
+  scroll-margin-top: 130px;
+}
+
+.radius-360-outline--white {
+  background-color: #ffffff !important;
+  border: 0.5px solid #888888 !important;
+  box-shadow: none !important;
+}
+
+#booking-payment .v-expansion-panels .main-expansion {
+  border: none;
+}
+
+#booking-payment .v-expansion-panels {
+  &:not(&:last-child) {
+    margin-bottom: 8px;
+  }
+  @include phone-only() {
+    border-radius: 0;
+  }
+}
+
+#booking-payment .v-expansion-panel {
+  &::before {
+    box-shadow: none;
+  }
+  @include phone-only() {
+    border-bottom: 1px solid #B6B6B6;
+  }
+}
+
+#booking-payment .v-stepper__header {
+  height: auto;
+  box-shadow: none;
+}
+
+#booking-payment .v-stepper__step__step {
+  width: 56px;
+  height: 56px;
+}
+
+#booking-payment .theme--light.v-stepper {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#booking-payment .v-divider {
+  border-width: medium;
+}
+
+#booking-payment .v-expansion-panel-content__wrap {
+  padding: 0;
+}
+
+.v-expansion-panel-header--parent {
+  background-color: #c31c4a !important;
+  color: #ffffff !important;
+  i {
+    color: #ffffff !important;
+  }
+}
+.v-expansion-panel-header--child {
+  color: #333333 !important;
+  i {
+    color: #333333 !important;
+  }
+  @include desktop-up() {
+    background-color: #f6f6f6 !important;
+  }
+}
+
+.form-wrapper {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.form--checkbox  .v-label {
+  font-size: 14px;
+  line-height: 18px !important;
+  font-weight: 500 !important;
+  color: #333333 !important;
+}
+
+#booking-payment .v-skeleton-loader__heading {
+  width: 100%;
+  height: 45px;
+}
+
+.crossed {
+  background:
+      linear-gradient(to top left,
+          rgba(0,0,0,0) 0%,
+          rgba(0,0,0,0) calc(50% - 0.8px),
+          rgba(0,0,0,1) 50%,
+          rgba(0,0,0,0) calc(50% + 0.8px),
+          rgba(0,0,0,0) 100%),
+}
+
+.primary-decorated-link {
+  color: #C31C4A !important;
+  text-decoration: underline;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}

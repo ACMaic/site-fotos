@@ -1,0 +1,74 @@
+name: Production Workflow
+
+on:
+  push:
+    branches: ['master']
+  workflow_dispatch:
+
+env:
+  AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+  DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
+  NUXT_ENV_API_360_SUITES: ${{ secrets.NUXT_ENV_API_360_SUITES }}
+  NUXT_ENV_GOOGLE_MAPS_API: ${{ secrets.NUXT_ENV_GOOGLE_MAPS_API }}
+  NUXT_ENV_SECRET_KEY: ${{ secrets.NUXT_ENV_SECRET_KEY }}
+  NUXT_ENV_COGNITO_CLIENT_ID: ${{ secrets.NUXT_ENV_COGNITO_CLIENT_ID }}
+  NUXT_ENV_POOL_ID: ${{ secrets.NUXT_ENV_POOL_ID }}
+  NUXT_ENV_DOMAIN: ${{ secrets.NUXT_ENV_DOMAIN }}
+  NUXT_ENV_FACEBOOK_APP_ID: ${{ secrets.NUXT_ENV_FACEBOOK_APP_ID }}
+  NUXT_ENV_GOOGLE_APP_ID: ${{ secrets.NUXT_ENV_GOOGLE_APP_ID }}
+  NUXT_ENV_NODE: ${{ secrets.NUXT_ENV_NODE }}
+  NUXT_ENV_API_IBGE: ${{ secrets.NUXT_ENV_API_IBGE }}
+  NUXT_ENV_API_VIA_CEP: ${{ secrets.NUXT_ENV_API_VIA_CEP }}
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'yarn'
+      - name: Install
+        run: yarn install
+      - name: Linter
+        run: yarn run lint
+      - name: Generate
+        run: yarn run generate
+      - uses: actions/upload-artifact@master
+        with:
+          name: dist-artifact
+          path: dist/
+
+  deploy:
+    name: Deploy to S3
+    needs: build
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Get dist folder
+        uses: actions/download-artifact@master
+        with:
+          name: dist-artifact
+          path: dist/
+      - name: Deploy
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --delete
+        env:
+          SOURCE_DIR: 'dist'
+
+  invalidate:
+    name: Invalidate CloudFront
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Invalidate
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION }} --paths "/*"
