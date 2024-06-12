@@ -9,7 +9,7 @@
                 <v-col cols="12" md="6" class="d-flex ma-0 pa-2">
                   <v-image
                     class="v-responsive mx-auto mr-md-6 mr-lg-3 theme--light"
-                    style="height: 290px; border-radius: 20px 40px 40px 1px !important; background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('https://beds24.360suites.com.br/images/205067/Fachada.jpg'); background-size: cover; background-position: center center;">
+                    style="height: 290px; border-radius: 20px 40px 40px 1px !important; background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('https://beds24.360suites.com.br/images/102721/1.jpg'); background-size: cover; background-position: center center;">
                     <div class="v-responsive__content"></div>
                   </v-image>
                 </v-col>
